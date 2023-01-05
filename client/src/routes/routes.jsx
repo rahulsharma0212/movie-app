@@ -45,6 +45,15 @@ const routes = [
     state: "password.update",
   },
   {
+    path: "/favorites",
+    element: (
+      <ProtectedPage>
+        <FavouriteList />
+      </ProtectedPage>
+    ),
+    state: "favorites",
+  },
+  {
     path: "/reviews",
     element: (
       <ProtectedPage>
