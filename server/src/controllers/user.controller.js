@@ -44,7 +44,7 @@ const signin = async (req, res) => {
 
     if (!user) return responseHandler.badRequest(res, "user not exists");
 
-    if (!user.validPassword(password))
+    if (!user.validatePassword(password))
       return responseHandler.badRequest(res, "Wrong password");
 
     const token = jsonwebtoken.sign(
@@ -75,7 +75,7 @@ const updatePassword = async (req, res) => {
 
     if (!user) return responseHandler.unauthorized(res);
 
-    if (!user.validPassword(password))
+    if (!user.validatePassword(password))
       return responseHandler.badRequest(res, "Wrong password");
 
     user.setPassword(newPassword);
