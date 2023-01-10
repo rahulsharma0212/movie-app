@@ -19,7 +19,7 @@ const auth = async (req, res, next) => {
   const tokenDecoded = tokenDecode(req);
   if (!tokenDecoded) return responseHandler.unauthorized(res);
 
-  const user = await userModel.findById(tokenDecode.data);
+  const user = await userModel.findById(tokenDecoded.data);
 
   if (!user) return responseHandler.unauthorized(res);
 
