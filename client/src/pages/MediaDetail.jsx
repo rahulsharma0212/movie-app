@@ -23,6 +23,7 @@ import { setGlobalLoading } from "../redux/features/globalLoadingSlice";
 import { setAuthModalOpen } from "../redux/features/authModalSlice";
 import { addFavourite, removeFavourite } from "../redux/features/userSlice";
 import MediaVideoSlide from "../components/common/MediaVideoSlide";
+import BackdropSlide from "../components/common/BackdropSlide";
 
 const MediaDetail = () => {
   const { mediaType, mediaId } = useParams();
@@ -254,6 +255,14 @@ const MediaDetail = () => {
           </Container>
         </div>
         {/* media videos */}
+
+        {/* media backdrop */}
+        {media.images.backdrops.length > 0 && (
+          <Container header="backdrops">
+            <BackdropSlide backdrops={media.images.backdrops} />
+          </Container>
+        )}
+        {/* media backdrop */}
       </Box>
     </>
   ) : null;
