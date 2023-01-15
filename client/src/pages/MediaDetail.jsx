@@ -29,7 +29,6 @@ const MediaDetail = () => {
   const { user, listFavourites } = useSelector((state) => state.user);
 
   const [media, setMedia] = useState();
-  console.log({ media });
   const [isFavourite, setIsFavourite] = useState(false);
   const [onRequest, setOnRequest] = useState(false);
   const [genres, setGenres] = useState([]);
@@ -62,6 +61,7 @@ const MediaDetail = () => {
     if (onRequest) return;
 
     if (isFavourite) {
+      onRemoveFavourite();
       return;
     }
 
@@ -82,6 +82,27 @@ const MediaDetail = () => {
       dispatch(addFavourite(response));
       setIsFavourite(true);
       toast.success("Add favourite success");
+    }
+  };
+
+  const onRemoveFavourite = async () => {
+    if (onRequest) return;
+    setOnRequest(true);
+    const favourite = listFavourites.find(
+      (e) => e.mediaId.toString() === media.id.toString()
+    );
+
+    const { response, err } = await favouriteApi.remove({
+      favouriteId: favourite.id,
+    });
+
+    setOnRequest(false);
+
+    if (err) toast.error(err.message);
+    if (response) {
+      dispatch(removeFavourite(favourite));
+      setIsFavourite(false);
+      toast.success("Remove favourite success");
     }
   };
 
