@@ -27,7 +27,7 @@ const CastSlide = ({ casts }) => {
               <Box
                 sx={{
                   paddingTop: "120%",
-                  color: "text.primary",
+                  color: "#fff",
                   ...uiConfigs.style.backgroundImage(
                     tmdbConfigs.posterPath(cast.profile_path)
                   ),
