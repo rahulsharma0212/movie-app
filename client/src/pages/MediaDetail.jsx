@@ -25,6 +25,8 @@ import { addFavourite, removeFavourite } from "../redux/features/userSlice";
 import MediaVideoSlide from "../components/common/MediaVideoSlide";
 import BackdropSlide from "../components/common/BackdropSlide";
 import PosterSlide from "../components/common/PosterSlide";
+import RecommendSlide from "../components/common/RecommendSlide";
+import MediaSlide from "../components/common/MediaSlide";
 
 const MediaDetail = () => {
   const { mediaType, mediaId } = useParams();
@@ -252,7 +254,7 @@ const MediaDetail = () => {
         {/* media videos */}
         <div ref={videoRef} style={{ paddingTop: "2rem" }}>
           <Container header="videos">
-            <MediaVideoSlide videos={media.videos.results} />
+            <MediaVideoSlide videos={media.videos.results.slice(0, 5)} />
           </Container>
         </div>
         {/* media videos */}
@@ -272,6 +274,27 @@ const MediaDetail = () => {
           </Container>
         )}
         {/* media posters */}
+
+        {/* media reviews */}
+        {/* media reviews */}
+
+        {/* media recommendation */}
+        <Container header="you may also like">
+          {media.recommend?.results.length > 0 && (
+            <RecommendSlide
+              medias={media.recommend.results}
+              mediaType={mediaType}
+            />
+          )}
+          {media.recommend?.results.length === 0 && (
+            <MediaSlide
+              mediaType={mediaType}
+              mediaCategory={tmdbConfigs.mediaCategory.top_rated}
+            />
+          )}
+        </Container>
+
+        {/* media recommendation */}
       </Box>
     </>
   ) : null;

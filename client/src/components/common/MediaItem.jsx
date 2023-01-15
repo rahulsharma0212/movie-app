@@ -16,7 +16,6 @@ const MediaItem = ({ media, mediaType }) => {
   const [posterPath, setPosterPath] = useState("");
   const [releaseDate, setReleaseDate] = useState(null);
   const [rate, setRate] = useState(null);
-
   useEffect(() => {
     setTitle(media.title || media.name || media.mediaTitle);
 
