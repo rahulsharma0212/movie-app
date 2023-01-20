@@ -10,8 +10,8 @@ const BackdropSlide = ({ posters }) => {
         <SwiperSlide key={index}>
           <Box
             sx={{
-              paddingTop: "60%",
-              backgroundPosition: "top",
+              paddingTop: "160%",
+              backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundImage: `url(${tmdbConfigs.backdropPath(
                 item.file_path

@@ -254,11 +254,13 @@ const MediaDetail = () => {
         {/* media content */}
 
         {/* media videos */}
-        <div ref={videoRef} style={{ paddingTop: "2rem" }}>
-          <Container header="videos">
-            <MediaVideoSlide videos={media.videos.results.slice(0, 5)} />
-          </Container>
-        </div>
+        {media.videos.results.length !== 0 && (
+          <div ref={videoRef} style={{ paddingTop: "2rem" }}>
+            <Container header="videos">
+              <MediaVideoSlide videos={media.videos.results.slice(0, 5)} />
+            </Container>
+          </div>
+        )}
         {/* media videos */}
 
         {/* media backdrop */}
