@@ -10,6 +10,7 @@ import uiConfigs from "../configs/ui.config";
 import favouriteApi from "../api/modules/favourite.api";
 import { setGlobalLoading } from "../redux/features/globalLoadingSlice";
 import { removeFavourite } from "../redux/features/userSlice";
+import AddSeo from "../utils/AddSeo";
 
 const FavouriteItem = ({ media, onRemoved }) => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const FavouriteItem = ({ media, onRemoved }) => {
   };
   return (
     <>
+      <AddSeo title="Favourites" description="Here is you favourite list" />
       <MediaItem media={media} mediaType={media.mediaType} />
       <LoadingButton
         fullWidth

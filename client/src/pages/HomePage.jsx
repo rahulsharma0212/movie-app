@@ -5,10 +5,15 @@ import { Box } from "@mui/material";
 import uiConfigs from "../configs/ui.config";
 import Container from "../components/common/Container";
 import MediaSlide from "../components/common/MediaSlide";
+import AddSeo from "../utils/AddSeo";
 
 const HomePage = () => {
   return (
     <>
+      <AddSeo
+        title="Homepage"
+        description="MrFlix is best place to search for your best movies and tv"
+      />
       <HeroSlide
         mediaType={tmdbConfigs.mediaType.movie}
         mediaCategory={tmdbConfigs.mediaCategory.popular}

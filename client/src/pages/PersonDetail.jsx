@@ -9,6 +9,7 @@ import personApi from "../api/modules/person.api";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { setGlobalLoading } from "../redux/features/globalLoadingSlice";
+import AddSeo from "../utils/AddSeo";
 
 const PersonDetail = () => {
   const { personId } = useParams();
@@ -31,6 +32,7 @@ const PersonDetail = () => {
       <Toolbar />
       {person && (
         <>
+          <AddSeo title={person.name} />
           <Box sx={{ ...uiConfigs.style.mainContent }}>
             <Box
               sx={{

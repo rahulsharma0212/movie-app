@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import mediaApi from "../api/modules/media.api";
 import MediaGrid from "../components/common/MediaGrid";
 import uiConfigs from "../configs/ui.config";
+import AddSeo from "../utils/AddSeo";
 
 const mediaTypes = ["movie", "tv", "people"];
 let timer = 0;
@@ -65,6 +66,7 @@ const MediaSearch = () => {
 
   return (
     <>
+      <AddSeo title="Search Movie, tv and people" />
       <Toolbar />
       <Box sx={{ ...uiConfigs.style.mainContent }}>
         <Stack spacing={2}>
@@ -93,7 +95,7 @@ const MediaSearch = () => {
           </Stack>
           <TextField
             color="success"
-            placeholder="Search MoonFlix"
+            placeholder="Search MrFlix"
             sx={{ width: "100%" }}
             autoFocus
             onChange={onQueryChange}

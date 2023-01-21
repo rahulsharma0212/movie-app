@@ -11,6 +11,7 @@ import MediaGrid from "../components/common/MediaGrid";
 import { setAppState } from "../redux/features/appStateSlice";
 import { setGlobalLoading } from "../redux/features/globalLoadingSlice";
 import { toast } from "react-toastify";
+import AddSeo from "../utils/AddSeo";
 
 const MediaList = () => {
   const { mediaType } = useParams();
@@ -65,6 +66,7 @@ const MediaList = () => {
 
   return (
     <>
+      <AddSeo title={mediaType} />
       <HeroSlide
         mediaType={mediaType}
         mediaCategory={mediaCategories[currCategory]}

@@ -28,6 +28,7 @@ import PosterSlide from "../components/common/PosterSlide";
 import RecommendSlide from "../components/common/RecommendSlide";
 import MediaSlide from "../components/common/MediaSlide";
 import MediaReview from "../components/common/MediaReview";
+import AddSeo from "../utils/AddSeo";
 
 const MediaDetail = () => {
   const { mediaType, mediaId } = useParams();
@@ -115,6 +116,10 @@ const MediaDetail = () => {
 
   return media ? (
     <>
+      <AddSeo
+        title={media.original_title}
+        description={media.overview ? media.overview : media.original_title}
+      />
       <ImageHeader
         imgPath={tmdbConfigs.backdropPath(
           media.backdrop_path || media.poster_path

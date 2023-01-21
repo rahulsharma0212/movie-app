@@ -12,6 +12,7 @@ import uiConfigs from "../configs/ui.config";
 import { setGlobalLoading } from "../redux/features/globalLoadingSlice";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { routeGen } from "../routes/routes";
+import AddSeo from "../utils/AddSeo";
 
 const ReviewItem = ({ review, onRemoved }) => {
   const [onRequest, setOnRequest] = useState(false);
@@ -155,6 +156,7 @@ const ReviewList = () => {
 
   return (
     <Box sx={{ ...uiConfigs.style.mainContent }}>
+      <AddSeo title="reviews" />
       <Container header={`Your review (${count})`}>
         <Stack spacing={2}>
           {filteredReviews.map((item) => (

@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/features/userSlice";
 import { setAuthModalOpen } from "../redux/features/authModalSlice";
+import AddSeo from "../utils/AddSeo";
 
 const PasswordUpdate = () => {
   const [onRequest, setOnRequest] = useState(false);
@@ -59,6 +60,7 @@ const PasswordUpdate = () => {
 
   return (
     <Box sx={{ ...uiConfigs.style.mainContent }}>
+      <AddSeo title="update password" />
       <Container header="update password">
         <Box component="form" maxWidth="400px" onSubmit={form.handleSubmit}>
           <Stack spacing={2}>
