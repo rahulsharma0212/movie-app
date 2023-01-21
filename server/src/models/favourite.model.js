@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import modelOptions from "./model.options.js";
 
-const reviewSchema = new mongoose.Schema(
+const favouriteSchema = new mongoose.Schema(
   {
     user: {
       type: Schema.Types.ObjectId,
@@ -33,6 +33,6 @@ const reviewSchema = new mongoose.Schema(
   modelOptions
 );
 
-const reviewModel = mongoose.model("Favourite", reviewSchema);
+const reviewModel = mongoose.model("Favourite", favouriteSchema);
 
 export default reviewModel;
